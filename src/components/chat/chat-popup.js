@@ -4,7 +4,7 @@ import axios from "axios";
 
 import "./styles.css";
 
-import api from "./../services/api"
+import api from "../../services/api";
 import send from "../../images/send-icon.png";
 import melissa from "../../images/melissa-icon.png";
 import close from "../../images/close-icon.png";
@@ -15,10 +15,9 @@ export default class ChatPopup extends Component {
     super(props);
     this.state = {
       style: {
-        display: "none",
+        display: "block",
       },
       messageList: [],
-      optionsList: [],
     };
     this.handlePopoutClick = this.handlePopoutClick.bind(this);
   }
@@ -28,12 +27,12 @@ export default class ChatPopup extends Component {
   }
 
   welcomeMessage() {
-    const messageList = document.getElementById("message-list");
+    const messages = document.getElementById("message-list");
     const welcomeMessage = `<div id="server-message">
     Oi Mega Hack 3.0! Bem vindo(a) ao Mercado Livre. Meu nome é Melissa, e tô aqui pra te ajudar. Em que posso ser útil?
     </div>`;
     this.state.messageList.push(welcomeMessage);
-    messageList.innerHTML = this.state.messageList[0];
+    messages.innerHTML = this.state.messageList[0];
   }
 
   handlePopoutClick() {
@@ -64,9 +63,11 @@ export default class ChatPopup extends Component {
     if (message === "null" || message === "") {
       return;
     } else {
+      const addedMessage = document.createElement("div");
       var userMessage = `<div id="user-message">${message}</div>`;
+      addedMessage.innerHTML = userMessage;
       this.state.messageList.concat(userMessage);
-      messages.appendChild(userMessage);
+      messages.appendChild(addedMessage);
       input.value = "";
     }
     console.log(userMessage);
@@ -76,7 +77,7 @@ export default class ChatPopup extends Component {
     return (
       <div className="chat">
         <div className="button-container" onClick={this.handlePopoutClick}>
-          <img id="chat-icon" src={chat} alt="Chat icon" />
+          <img id="chat-icon" src={close} alt="Chat icon" />
         </div>
         <div className="container" style={this.state.style}>
           <header id="chat-header">
