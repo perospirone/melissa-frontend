@@ -52,35 +52,37 @@ body {
 }
 
 #message-list {
-  display: block;
+  display: flex;
+  flex-direction: column;
   height: 300px;
   margin: 10px;
+  overflow-y: auto;
 }
 
 #server-message {
   position: relative;
   float: left;
-  background-color: #fff159;
-  height: fit-content;
-  max-width: 100%;
-  min-width: fit-content;
-  padding: 8px;
-  font-size: 14px;
-  border-radius: 10px 10px 10px 0px;
-  align-self: flex-end;
-}
-
-#user-message {
-  position: relative;
-  float: right;
   background-color: rgb(220, 220, 220);
   height: fit-content;
   max-width: 100%;
   min-width: fit-content;
   padding: 8px;
   font-size: 14px;
+  border-radius: 10px 10px 10px 0px;
+  margin: 0px 0px 4px 0px;
+}
+
+#user-message {
+  position: relative;
+  float: right;
+  background-color: #fff159;
+  height: fit-content;
+  max-width: 100%;
+  min-width: fit-content;
+  padding: 8px;
+  font-size: 14px;
   border-radius: 10px 10px 0px 10px;
-  align-self: flex-end;
+  margin: 0px 4px 4px 0px;
 }
 
 .message-box {
