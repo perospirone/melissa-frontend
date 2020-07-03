@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { InputGroup, FormControl } from "react-bootstrap";
-import axios from "axios";
 
 import "./styles.css";
 
@@ -26,14 +25,14 @@ export default class ChatPopup extends Component {
     this.welcomeMessage();
   }
 
-  welcomeMessage() {
+  welcomeMessage = async () => {
     const messages = document.getElementById("message-list");
-    const welcomeMessage = `<div id="server-message">
+    const welcomeMessage = `<div class="server-message">
     Oi Mega Hack 3.0! Bem vindo(a) ao Mercado Livre. Meu nome é Melissa, e tô aqui pra te ajudar. Em que posso ser útil?
     </div>`;
     this.state.messageList.push(welcomeMessage);
     messages.innerHTML = this.state.messageList[0];
-  }
+  };
 
   handlePopoutClick() {
     const icon = document.getElementById("chat-icon");
@@ -54,8 +53,7 @@ export default class ChatPopup extends Component {
     }
   }
 
-  /* NEED FIX */
-  handleMessage = () => {
+  handleMessage = async () => {
     const input = document.getElementById("message-input");
     const messages = document.getElementById("message-list");
 
@@ -63,14 +61,27 @@ export default class ChatPopup extends Component {
     if (message === "null" || message === "") {
       return;
     } else {
+      const response = await api.post("/api/client", {
+        message,
+      });
+      console.log(response.data.answer);
+
       const addedMessage = document.createElement("div");
-      var userMessage = `<div id="user-message">${message}</div>`;
+      const serverMessage = document.createElement("div");
+
+      var userMessage = `<div class="user-message">${message}</div>`;
+      var melissaMessage = `<div class="server-message">${response.data.answer}</div>`;
+
       addedMessage.innerHTML = userMessage;
+      serverMessage.innerHTML = melissaMessage;
+
       this.state.messageList.concat(userMessage);
+      this.state.messageList.concat(melissaMessage);
+
       messages.appendChild(addedMessage);
+      messages.appendChild(serverMessage);
       input.value = "";
     }
-    console.log(userMessage);
   };
 
   renderChat = () => {
