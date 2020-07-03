@@ -59,7 +59,7 @@ body {
   overflow-y: auto;
 }
 
-#server-message {
+.server-message {
   position: relative;
   float: left;
   background-color: rgb(220, 220, 220);
@@ -72,7 +72,7 @@ body {
   margin: 0px 0px 4px 0px;
 }
 
-#user-message {
+.user-message {
   position: relative;
   float: right;
   background-color: #fff159;
