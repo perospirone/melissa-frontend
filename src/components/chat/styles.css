@@ -18,11 +18,10 @@ body {
   right: 0;
   display: flex;
   flex-direction: column;
-  margin: 20px;
+  margin: 20px 40px;
 }
 
 .container {
-  position: relative;
   display: block;
   float: right;
   padding: 0;
