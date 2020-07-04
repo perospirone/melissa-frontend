@@ -5,7 +5,7 @@ import "./styles.css";
 
 import api from "../../services/api";
 import send from "../../images/send-icon.png";
-import melissa from "../../images/melissa-icon.png";
+import melissa from "../../images/melissa-updated-icon.png";
 import close from "../../images/close-icon.png";
 import chat from "../../images/chat-icon.png";
 
