@@ -64,7 +64,6 @@ export default class ChatPopup extends Component {
       const response = await api.post("/api/client", {
         message,
       });
-      console.log(response.data.answer);
 
       const addedMessage = document.createElement("div");
       const serverMessage = document.createElement("div");
