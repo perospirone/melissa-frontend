@@ -79,6 +79,20 @@ export default class ChatPopup extends Component {
 
       messages.appendChild(addedMessage);
       messages.appendChild(serverMessage);
+
+      if (response.data.map) {
+        const map = document.createElement("img");
+        map.src = response.data.map;
+        messages.appendChild(map);
+      }
+
+      if (response.data.answer2) {
+        const evaluation = document.createElement("div");
+        var evaluationMessage = `<div class="server-message">${response.data.answer2}</div>`;
+        evaluation.innerHTML = evaluationMessage;
+        messages.appendChild(evaluation);
+      }
+
       input.value = "";
     }
   };
