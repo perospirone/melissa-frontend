@@ -6,6 +6,7 @@
 body {
   background: url("../../images/background-mercadolivre.png");
   font-family: "Montserrat", sans-serif;
+  background-size: 100%;
 }
 
 .chat {
@@ -69,7 +70,7 @@ body {
   padding: 8px;
   font-size: 14px;
   border-radius: 10px 10px 10px 0px;
-  margin: 0px 0px 4px 0px;
+  margin: 0px 4px 4px 0px;
 }
 
 .user-message {
