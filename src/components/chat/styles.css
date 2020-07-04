@@ -80,7 +80,7 @@ body {
 }
 
 .server-message:hover {
-  background-color: rgb(220, 220, 220);
+  background-color: #ddcd19;
 }
 
 .user-message {
@@ -97,7 +97,7 @@ body {
 }
 
 .user-message:hover {
-  background-color: #ddcd19;
+  background-color: rgb(220, 220, 220);
 }
 
 .message-box {
