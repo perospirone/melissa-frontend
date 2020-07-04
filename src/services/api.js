@@ -1,5 +1,5 @@
 import axios from "axios";
 
-const api = axios.create({ baseURL: "localhost:8080" });
+const api = axios.create({ baseURL: "http://melissajs.herokuapp.com" });
 
 export default api;
