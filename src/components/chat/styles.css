@@ -69,7 +69,7 @@ body {
 .server-message {
   position: relative;
   float: left;
-  background-color: rgb(240, 240, 240);
+  background-color: #fff159;
   height: fit-content;
   max-width: 70%;
   padding: 8px;
@@ -86,7 +86,7 @@ body {
 .user-message {
   position: relative;
   float: right;
-  background-color: #fff159;
+  background-color: rgb(240, 240, 240);
   height: fit-content;
   max-width: 70%;
   padding: 8px;
