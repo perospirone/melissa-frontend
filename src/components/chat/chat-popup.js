@@ -86,9 +86,6 @@ export default class ChatPopup extends Component {
   renderChat = () => {
     return (
       <div className="chat">
-        <div className="button-container" onClick={this.handlePopoutClick}>
-          <img id="chat-icon" src={close} alt="Chat icon" />
-        </div>
         <div className="container" style={this.state.style}>
           <header id="chat-header">
             <div className="header-info">
@@ -107,6 +104,9 @@ export default class ChatPopup extends Component {
               <img src={send} alt="Send button" onClick={this.handleMessage} />
             </InputGroup>
           </footer>
+        </div>
+        <div className="button-container" onClick={this.handlePopoutClick}>
+          <img id="chat-icon" src={close} alt="Chat icon" />
         </div>
       </div>
     );
