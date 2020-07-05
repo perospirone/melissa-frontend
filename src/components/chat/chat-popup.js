@@ -21,6 +21,8 @@ export default class ChatPopup extends Component {
     this.handlePopoutClick = this.handlePopoutClick.bind(this);
   }
 
+  chatContainer = React.createRef();
+
   componentDidMount() {
     this.welcomeMessage();
   }
@@ -94,7 +96,20 @@ export default class ChatPopup extends Component {
       }
 
       input.value = "";
+      this.setState(
+        {
+          messages,
+        },
+        () => this.scrollToMyRef()
+      );
     }
+  };
+
+  scrollToMyRef = () => {
+    const scroll =
+      this.chatContainer.current.scrollHeight -
+      this.chatContainer.current.clientHeight;
+    this.chatContainer.current.scrollTo(0, scroll);
   };
 
   renderChat = () => {
@@ -107,7 +122,7 @@ export default class ChatPopup extends Component {
               <span>Melissa</span>
             </div>
           </header>
-          <div id="message-list"></div>
+          <div ref={this.chatContainer} id="message-list"></div>
           <footer>
             <InputGroup className="message-box">
               <FormControl
